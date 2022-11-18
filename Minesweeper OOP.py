@@ -52,9 +52,6 @@ def PlaceBombs(map, numToPlace=10):
             map[i][j].value = -1
             numPlaced += 1
 
-    # for i in range(size):
-    #     for j in range(size):
-    #         map[i][j].value = -1 if random.randint(0, 100) < percentage else 0
     return map, numPlaced
 
 def PrintMap(map):
@@ -103,14 +100,13 @@ def DrawPlayButton(screen):
 
 def DrawMenu(screen, startTime):
     DrawTime(screen, startTime)
-    # DrawPlayButton(screen)
 
     pygame.display.update()
 
 
 def Setup(difficulty):
     map = CreateMap()
-    map, numBombs = PlaceBombs(map, (0.02 * difficulty + 0.05) * size[0] * size[1])
+    map, numBombs = PlaceBombs(map, (0.015* difficulty + 0.1) * size[0] * size[1])
     map = UpdateMap(map)
     return map, numBombs
 
@@ -166,9 +162,9 @@ def Menu():
 
 def main():
     global size, scale, sideMenuWidth, screen
-    size = (5, 5)
+    size = (20, 20)
     scale = min(1700 // size[0], 1000 // size[1])
-    difficulty = 10
+    difficulty = 3
     sideMenuWidth = 200
     screen = InitPygame()
     map, numBombs = Setup(difficulty)
