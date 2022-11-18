@@ -190,7 +190,7 @@ def Play():
 
 width, height = 20, 20
 sideMenuWidth = 200
-difficulty = 9
+difficulty = 3
 numBombs = round(width * height * (0.015* difficulty + 0.1))
 scale = min(1700 // width, 1000 // height)
 screen = InitPygame()
